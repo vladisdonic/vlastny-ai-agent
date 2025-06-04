@@ -1,11 +1,8 @@
 streamlit==1.35.0
-openai==1.35.13
-llama-index==0.10.68
-llama-index-llms-openai>=0.1.27,<0.2.0 # <--- ZMENENÝ RIADOK
-llama-index-embeddings-openai>=0.1.10 # Túto verziu môžeme tiež mierne upraviť, ak by bol problém
-llama-index-vector-stores-chroma>=0.1.9 # Kompatibilné s LlamaIndex 0.10.x
-chromadb==0.5.4
-pydantic<2
+openai>=1.35.0,<2.0.0 # Použijeme stabilnú verziu openai
+llama-index[openai,chromadb]==0.10.68 # LlamaIndex si sám stiahne kompatibilné openai a chromadb integrácie pre verziu 0.10.68
+chromadb>=0.5.0,<0.6.0 # Pinujeme chromadb na stabilnú verziu
+pydantic<2 # Kritické pre llama-index 0.10.x
 protobuf==4.25.3
 grpcio==1.60.1
 grpcio-tools==1.60.1
